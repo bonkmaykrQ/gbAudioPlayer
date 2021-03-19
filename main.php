@@ -22,11 +22,22 @@ if (file_exists($configpath)) {
 
 /*$database->close();*/
 ?>
+<head>
+    <!--<link rel="stylesheet" href="https://gbaudioplayer.000webhostapp.com/greenplayer/dist/css/green-audio-player.css">
+    <script src="https://gbaudioplayer.000webhostapp.com/greenplayer/dist/js/app.js"></script>-->
+</head>
 
 <module class="PageModule bmAudio">
     <div class="Content" style="display:flex;justify-content:center;align-items:center;">
+        <!--<h4 class="bmAudioTitle" style="width:0%;">php echo basename($mp3path, "mp3");</h4>-->
+        <div class="bmAudioControls green-audio-player">
         <audio width="100%" height="100px" style="background:transparent;" controls>
             <source src="<?php echo $mp3path;?>" type="audio/mpeg"/>
-        </audio></audio>
+        </audio>
+        <!--<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new GreenAudioPlayer('.bmAudioControls');
+        });
+    </script>--></div>
     </div>
 </module>
