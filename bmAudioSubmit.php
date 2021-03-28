@@ -9,7 +9,13 @@
    
 $currentuserid = $_POST["UserID"];
 $configpath = $currentuserid;
+
 $mp3path = $_POST["mp3Input"];
+$_p_saved_loopit = $_POST["p_loopit"];
+$_p_saved_IdentityClasses = $_POST["p_useIdentityClasses"];
+$_g_saved_IdentityClasses = $_POST["g_useIdentityClasses"];
+$_g_autoplaytoggler = $_POST["g_autoplaytoggler"];
+$_g_mutetoggler = $_POST["g_mutetoggler"];
 
 $mp3name = basename($mp3path);
 
@@ -39,6 +45,27 @@ if (endFunc($mp3path, ".mp3") && substr( $mp3path, 0, 4 ) == "http") {
 $configstream = fopen ($configpath, "w");
 fwrite($configstream, $mp3path);
 fclose($configstream);
+
+$configstream = fopen ($configpath + "_p_saved_loopit", "w");
+fwrite($configstream, $_p_saved_loopit);
+fclose($configstream);
+
+$configstream = fopen ($configpath + "_p_saved_IdentityClasses", "w");
+fwrite($configstream, $_p_saved_IdentityClasses);
+fclose($configstream);
+
+$configstream = fopen ($configpath + "_g_saved_IdentityClasses", "w");
+fwrite($configstream, $_g_saved_IdentityClasses);
+fclose($configstream);
+
+$configstream = fopen ($configpath + "_g_autoplaytoggler", "w");
+fwrite($configstream, $_g_autoplaytoggler);
+fclose($configstream);
+
+$configstream = fopen ($configpath + "_g_mutetoggler", "w");
+fwrite($configstream, $_g_mutetoggler);
+fclose($configstream);
+
 } elseif (substr( $mp3path, 0, 4 ) == "http") {
     echo '<head>
     <style>
@@ -78,3 +105,4 @@ fclose($configstream);
 }
 
 ?>
+
